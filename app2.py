@@ -7,10 +7,11 @@ import nltk
 import random
 from PIL import Image
 from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
 import json
-import nltk
 import base64
+import time  # Add time import
+
+lemmatizer = WordNetLemmatizer()
 
 nltk.download('punkt')
 nltk.download('wordnet')
