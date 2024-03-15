@@ -8,6 +8,10 @@ from PIL import Image
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import json
+import nltk
+
+nltk.download('punkt')
+nltk.download('wordnet')
 
 # Load your model
 model = load_model('new_chatbot_model.h5')
