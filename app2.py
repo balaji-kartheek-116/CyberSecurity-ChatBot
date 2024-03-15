@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from keras.models import load_model
+from gtts import gTTS
 import pickle
 import nltk
 import random
