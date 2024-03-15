@@ -1,18 +1,14 @@
 import streamlit as st
 import numpy as np
-import os
 from keras.models import load_model
-from gtts import gTTS
 import pickle
 import nltk
 import random
 from PIL import Image
 from nltk.stem import WordNetLemmatizer
-import json
-import base64
-import time  # Add time import
-
 lemmatizer = WordNetLemmatizer()
+import json
+import nltk
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -69,7 +65,16 @@ def getResponse(ints, intents_json):
             break
     return result
 
+
+
 # Streamlit code
+
+import streamlit as st
+from PIL import Image
+from gtts import gTTS
+import speech_recognition as sr
+import time
+import os
 
 # Define your predict_class() and getResponse() functions here
 
@@ -158,8 +163,6 @@ if session_state.authenticated:
             audio_file_path = "response.mp3"
             if os.path.exists(audio_file_path):
                 st.success("Audio file created successfully.")
-                audio_base64 = base64.b64encode(open(audio_file_path, "rb").read()).decode("utf-8")
-                audio_html = f'<audio autoplay controls><source src="data:audio/mp3;base64,{audio_base64}" type="audio/mp3"></audio>'
-                st.markdown(audio_html, unsafe_allow_html=True)
+                st.audio(audio_file_path, format='audio/mp3')
             else:
                 st.error("Audio file not found.")
